@@ -1,6 +1,7 @@
 const { City } = require('../models/index');
 
 class CityRepository {
+    
     async createCity({ name }) { // destructuring the obj which is passed
         try {
             const city = await City.create({ name });
