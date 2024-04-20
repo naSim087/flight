@@ -32,4 +32,13 @@
   - A city has many airports but one airport belongs to a city
   - One airport can have many flights, but a flight belongs to one airport
 
-  
+  - for creating the model use the command
+  ' npx sequelize db:generate --name <model name> --attributes <attributes>'
+  example for the same
+  'npx sequelize db:generate --name Airplanes --attributes modelname:String,capacity:integer'
+
+  to migrate the changes run the command
+  ' npx sequelize db:migrate'
+
+  - code for generating the seed
+  'npx sequelize seed:generate --name add-airplanes'

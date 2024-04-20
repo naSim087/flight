@@ -2,10 +2,25 @@ const { City } = require('../models/index');
 const {Op}=require('sequelize');
 class CityRepository {
     
-    async createCity({ name }) { // destructuring the obj which is passed
+    async createCity( data ) { // destructuring the obj which is passed
         try {
-            const city = await City.create({ name });
-            return city;
+           
+            // console.log(data.array);
+
+            // console.log(data.array.length);
+
+
+                if(data.length>1){
+                const cities=await City.bulkCreate(data);
+
+                return cities;
+
+                }
+                else{
+
+             const city = await City.create(data);
+             return city;
+                }
         } catch (error) {
             console.log("semething went wrong in the repository layer\n");
             throw {error};

@@ -16,7 +16,7 @@ const setupAndStartServer = async () => {
     app.use('/api',apiroutes);
     app.listen(PORT, async () => {
         console.log(`Server started at ${PORT}`);
-        if(process.env.SYNC_DB){
+        if(process.env.SYNC_DB==1){
             db.sequelize.sync({alter:true}); 
         }
         // db.sequelize.sync({alter:true}); // this will sycn all the models at once
