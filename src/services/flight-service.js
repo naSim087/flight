@@ -1,5 +1,5 @@
 const {FlightRepository,AirplaneRepository}=require('../repository/index')
-const comparetime=require('../utils/helper')
+const {comparetime}=require('../utils/helper')
 
 class FlightService{
 
@@ -29,7 +29,16 @@ class FlightService{
 
   }
   async getFlightData(){
-    //todo
+    
+  }
+  async getAllFlightData(data){
+    const flight=await this.flightRepository.getAllFlights(data);
+    return flight;
+
+  }
+  catch(error){
+    console.log("something went wrong at the flight service layer");
+    console.log(error);
   }
   
 
